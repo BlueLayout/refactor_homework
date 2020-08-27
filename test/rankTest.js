@@ -737,7 +737,7 @@ rankTest('captainHistoryRisk 4 test case. should return 0 when captainHistoryRis
     t.is(result, 0);
 });
 
-rankTest('captainHistoryRisk 5 test case. should return 6 when captainHistoryRisk given history.length=5 and voyage.zone=xxx and history.zone=china and history.profit one -1', t => {
+rankTest('captainHistoryRisk 5 test case. should return 6 when captainHistoryRisk given history.length=4 and voyage.zone=xxx and history.zone=china and history.profit one -1', t => {
     //given
     const voyage = {
         zone: 'xxx',
@@ -765,4 +765,34 @@ rankTest('captainHistoryRisk 5 test case. should return 6 when captainHistoryRis
     const  result = captainHistoryRisk(voyage, history);
     //then
     t.is(result, 6);
+});
+
+rankTest('captainHistoryRisk 6 test case. should return 3 when captainHistoryRisk given history.length=4 and voyage.zone=china and history.zone=china and history.profit one -1', t => {
+    //given
+    const voyage = {
+        zone: 'china',
+        length: 0
+    };
+    const history = [
+        {
+            zone: 'china',
+            profit: 0
+        },
+        {
+            zone: 'china',
+            profit: 0
+        },
+        {
+            zone: 'china',
+            profit: 0
+        },
+        {
+            zone: 'china',
+            profit: 0
+        }
+    ];
+    //when
+    const  result = captainHistoryRisk(voyage, history);
+    //then
+    t.is(result, 3);
 });
