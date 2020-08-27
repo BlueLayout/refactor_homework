@@ -301,3 +301,23 @@ rankTest('voyageProfitFactor case 7 test. should return 7 when voyageProfitFacto
     //when
     t.is(result, 7);
 });
+
+rankTest('voyageProfitFactor case 8 test. should return 7 when voyageProfitFactor given voyage zone china and history.zone=china and history.length = 1 and voyage.length = 19', t => {
+    //when
+    const voyage = {
+        zone: 'china',
+        length: 19
+    };
+    const history = [
+        {
+            zone: 'china',
+            length: 1
+        }
+    ];
+
+    //given
+    const result = voyageProfitFactor(voyage, history);
+
+    //when
+    t.is(result, 6);
+});
