@@ -508,7 +508,7 @@ rankTest('voyageProfitFactor case 12 test. should return 4 when voyageProfitFact
     t.is(result, 4);
 });
 
-rankTest('voyageProfitFactor case 13 test. should return 4 when voyageProfitFactor given voyage zone east-indies and voyage.length = 15 and history.length = 8', t => {
+rankTest('voyageProfitFactor case 13 test. should return 2 when voyageProfitFactor given voyage zone east-indies and voyage.length = 15 and history.length = 8', t => {
     //when
     const voyage = {
         zone: 'east-indies',
@@ -553,4 +553,55 @@ rankTest('voyageProfitFactor case 13 test. should return 4 when voyageProfitFact
 
     //when
     t.is(result, 2);
+});
+
+rankTest('voyageProfitFactor case 14 test. should return 3 when voyageProfitFactor given voyage zone east-indies and voyage.length = 15 and history.length = 9', t => {
+    //when
+    const voyage = {
+        zone: 'east-indies',
+        length: 15
+    };
+    const history = [
+        {
+            zone: 'china',
+            length: 1
+        },
+        {
+            zone: 'china',
+            length: 2
+        },
+        {
+            zone: 'china',
+            length: 3
+        },
+        {
+            zone: 'china',
+            length: 4
+        },
+        {
+            zone: 'china',
+            length: 5
+        },
+        {
+            zone: 'china',
+            length: 6
+        },
+        {
+            zone: 'china',
+            length: 7
+        },
+        {
+            zone: 'china',
+            length: 8
+        },
+        {
+            zone: 'china',
+            length: 9
+        }
+    ];
+    //given
+    const result = voyageProfitFactor(voyage, history);
+
+    //when
+    t.is(result, 3);
 });
