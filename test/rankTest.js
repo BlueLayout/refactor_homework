@@ -736,3 +736,33 @@ rankTest('captainHistoryRisk 4 test case. should return 0 when captainHistoryRis
     //then
     t.is(result, 0);
 });
+
+rankTest('captainHistoryRisk 5 test case. should return 6 when captainHistoryRisk given history.length=5 and voyage.zone=xxx and history.zone=china and history.profit one -1', t => {
+    //given
+    const voyage = {
+        zone: 'xxx',
+        length: 0
+    };
+    const history = [
+        {
+            zone: 'china',
+            profit: -1
+        },
+        {
+            zone: 'china',
+            profit: 0
+        },
+        {
+            zone: 'china',
+            profit: 0
+        },
+        {
+            zone: 'china',
+            profit: 0
+        }
+    ];
+    //when
+    const  result = captainHistoryRisk(voyage, history);
+    //then
+    t.is(result, 6);
+});
