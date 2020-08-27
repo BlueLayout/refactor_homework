@@ -1,5 +1,5 @@
 const rankTest = require('ava');
-const {voyageRisk, voyageProfitFactor} = require('../src/rank');
+const {voyageRisk, voyageProfitFactor, captainHistoryRisk} = require('../src/rank');
 
 rankTest('foo', t => {
     t.pass();
@@ -79,7 +79,7 @@ rankTest('voyageProfitFactor case 1 test. should return 2 when voyageProfitFacto
     //given
     const result = voyageProfitFactor(voyage, history);
 
-    //when
+    //then
     t.is(result, 2);
 });
 
@@ -131,7 +131,7 @@ rankTest('voyageProfitFactor case 2 test. should return 3 when voyageProfitFacto
     //given
     const result = voyageProfitFactor(voyage, history);
 
-    //when
+    //then
     t.is(result, 3);
 });
 
@@ -148,7 +148,7 @@ rankTest('voyageProfitFactor case 3 test. should return 1 when voyageProfitFacto
     //given
     const result = voyageProfitFactor(voyage, history);
 
-    //when
+    //then
     t.is(result, 1);
 });
 
@@ -200,7 +200,7 @@ rankTest('voyageProfitFactor case 4 test. should return 2 when voyageProfitFacto
     //given
     const result = voyageProfitFactor(voyage, history);
 
-    //when
+    //then
     t.is(result, 2);
 });
 
@@ -218,7 +218,7 @@ rankTest('voyageProfitFactor case 5 test. should return 6 when voyageProfitFacto
     //given
     const result = voyageProfitFactor(voyage, history);
 
-    //when
+    //then
     t.is(result, 6);
 });
 
@@ -278,7 +278,7 @@ rankTest('voyageProfitFactor case 6 test. should return 7 when voyageProfitFacto
     //given
     const result = voyageProfitFactor(voyage, history);
 
-    //when
+    //then
     t.is(result, 7);
 });
 
@@ -298,7 +298,7 @@ rankTest('voyageProfitFactor case 7 test. should return 7 when voyageProfitFacto
     //given
     const result = voyageProfitFactor(voyage, history);
 
-    //when
+    //then
     t.is(result, 7);
 });
 
@@ -318,7 +318,7 @@ rankTest('voyageProfitFactor case 8 test. should return 6 when voyageProfitFacto
     //given
     const result = voyageProfitFactor(voyage, history);
 
-    //when
+    //then
     t.is(result, 6);
 });
 
@@ -378,7 +378,7 @@ rankTest('voyageProfitFactor case 9 test. should return 8 when voyageProfitFacto
     //given
     const result = voyageProfitFactor(voyage, history);
 
-    //when
+    //then
     t.is(result, 8);
 });
 
@@ -438,7 +438,7 @@ rankTest('voyageProfitFactor case 10 test. should return 7 when voyageProfitFact
     //given
     const result = voyageProfitFactor(voyage, history);
 
-    //when
+    //then
     t.is(result, 7);
 });
 
@@ -448,12 +448,11 @@ rankTest('voyageProfitFactor case 11 test. should return 3 when voyageProfitFact
         zone: 'east-indies',
         length: 1
     };
-    const history = [
-    ];
+    const history = [];
     //given
     const result = voyageProfitFactor(voyage, history);
 
-    //when
+    //then
     t.is(result, 3);
 });
 
@@ -504,7 +503,7 @@ rankTest('voyageProfitFactor case 12 test. should return 4 when voyageProfitFact
     //given
     const result = voyageProfitFactor(voyage, history);
 
-    //when
+    //then
     t.is(result, 4);
 });
 
@@ -551,7 +550,7 @@ rankTest('voyageProfitFactor case 13 test. should return 2 when voyageProfitFact
     //given
     const result = voyageProfitFactor(voyage, history);
 
-    //when
+    //then
     t.is(result, 2);
 });
 
@@ -602,6 +601,40 @@ rankTest('voyageProfitFactor case 14 test. should return 3 when voyageProfitFact
     //given
     const result = voyageProfitFactor(voyage, history);
 
-    //when
+    //then
     t.is(result, 3);
+});
+
+rankTest('captainHistoryRisk 1 test case. should return 1 when captainHistoryRisk given history.length=5 and voyage.zone=xxx and history.profit all 0', t => {
+    //given
+    const voyage = {
+        zone: 'xxx',
+        length: 0
+    };
+    const history = [
+        {
+            zone: 'xxx',
+            profit: 0
+        },
+        {
+            zone: 'xxx',
+            profit: 0
+        },
+        {
+            zone: 'xxx',
+            profit: 0
+        },
+        {
+            zone: 'xxx',
+            profit: 0
+        },
+        {
+            zone: 'xxx',
+            profit: 0
+        }
+    ];
+    //when
+    const  result = captainHistoryRisk(voyage, history);
+    //then
+    t.is(result, 1);
 });

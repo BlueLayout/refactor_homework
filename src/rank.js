@@ -102,5 +102,6 @@ console.log(`myRating: ${myRating}`);
 
 module.exports = {
   voyageRisk,
-  voyageProfitFactor
+  voyageProfitFactor,
+  captainHistoryRisk
 };
