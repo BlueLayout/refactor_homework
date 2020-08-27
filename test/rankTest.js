@@ -89,9 +89,44 @@ rankTest('voyageProfitFactor case 2 test. should return 3 when voyageProfitFacto
         zone: 'xxx',
         length: 1
     };
-    const history = {
-        length: 9
-    };
+    const history = [
+        {
+            zone: 'china',
+            length: 1
+        },
+        {
+            zone: 'china',
+            length: 2
+        },
+        {
+            zone: 'china',
+            length: 3
+        },
+        {
+            zone: 'china',
+            length: 4
+        },
+        {
+            zone: 'china',
+            length: 5
+        },
+        {
+            zone: 'china',
+            length: 6
+        },
+        {
+            zone: 'china',
+            length: 7
+        },
+        {
+            zone: 'china',
+            length: 8
+        },
+        {
+            zone: 'china',
+            length: 9
+        }
+    ];
 
     //given
     const result = voyageProfitFactor(voyage, history);
@@ -106,9 +141,9 @@ rankTest('voyageProfitFactor case 3 test. should return 1 when voyageProfitFacto
         zone: 'xxx',
         length: 15
     };
-    const history = {
+    const history = [{
         length: 1
-    };
+    }];
 
     //given
     const result = voyageProfitFactor(voyage, history);
@@ -123,9 +158,44 @@ rankTest('voyageProfitFactor case 4 test. should return 2 when voyageProfitFacto
         zone: 'xxx',
         length: 15
     };
-    const history = {
-        length: 9
-    };
+    const history = [
+        {
+            zone: 'china',
+            length: 1
+        },
+        {
+            zone: 'china',
+            length: 2
+        },
+        {
+            zone: 'china',
+            length: 3
+        },
+        {
+            zone: 'china',
+            length: 4
+        },
+        {
+            zone: 'china',
+            length: 5
+        },
+        {
+            zone: 'china',
+            length: 6
+        },
+        {
+            zone: 'china',
+            length: 7
+        },
+        {
+            zone: 'china',
+            length: 8
+        },
+        {
+            zone: 'china',
+            length: 9
+        }
+    ];
 
     //given
     const result = voyageProfitFactor(voyage, history);
