@@ -6,13 +6,12 @@ function voyageRisk (voyage) {
   if (voyage.length > 8) {
     result += voyage.length - 8;
   }
-  if ([
-    'china',
-    'east-indies',
-  ].includes(voyage.zone)) {
-    result += 4;
-  }
+  result += isZoneInChinaOrEast_Indies(voyage.zone)?4:0;
   return Math.max(result, 0);
+}
+
+function isZoneInChinaOrEast_Indies(zone) {
+    return zone === 'china' || zone === 'east-indies';
 }
 
 function hasChina (history) {
