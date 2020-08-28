@@ -26,6 +26,17 @@ function getDeliveryTime(deliveryState) {
   }
 }
 
+function getDeliveryTimeNonRush(deliveryState) {
+    if (isDeliveryStateInMAorCTorNY(deliveryState)) {
+        return  2;
+    }
+    else if (isDeliveryStateInMEorNH(deliveryState)) {
+        return  3;
+    }
+    else {
+        return  4;
+    }
+}
 
 function deliveryDate (anOrder, isRush) {
   let deliveryTime;
@@ -34,15 +45,7 @@ function deliveryDate (anOrder, isRush) {
     return anOrder.placedOn.plusDays(1 + deliveryTime);
   }
   else {
-    if (isDeliveryStateInMAorCTorNY(anOrder.deliveryState)) {
-      deliveryTime = 2;
-    }
-    else if (isDeliveryStateInMEorNH(anOrder.deliveryState)) {
-      deliveryTime = 3;
-    }
-    else {
-      deliveryTime = 4;
-    }
+    deliveryTime = getDeliveryTimeNonRush(anOrder.deliveryState);
     return anOrder.placedOn.plusDays(2 + deliveryTime);
   }
 }
