@@ -14,7 +14,7 @@ function isDeliveryStateInMEorNH(anOrder) {
     return ['ME', 'NH'].includes(anOrder.deliveryState);
 }
 
-function isRushDeliveryDate(deliveryState) {
+function getDeliveryTime(deliveryState) {
   if (isDeliveryStateInMAorCT(deliveryState)) {
     return 1;
   }
@@ -30,7 +30,7 @@ function isRushDeliveryDate(deliveryState) {
 function deliveryDate (anOrder, isRush) {
   let deliveryTime;
   if (isRush) {
-    deliveryTime = isRushDeliveryDate(anOrder.deliveryState);
+    deliveryTime = getDeliveryTime(anOrder.deliveryState);
     return anOrder.placedOn.plusDays(1 + deliveryTime);
   }
   else {
