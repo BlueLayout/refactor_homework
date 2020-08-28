@@ -34,12 +34,7 @@ function voyageProfitFactor (voyage, history) {
   }
   if (voyage.zone === 'china' && hasChina(history)) {
     result += history.length > 10 ? 4 : 3;
-    if (voyage.length > 12) {
-      result += 1;
-    }
-    if (voyage.length > 18) {
-      result -= 1;
-    }
+    result += voyage.length > 12 && voyage.length <= 18 ? 1 : 0;
   }
   else {
     if (history.length > 8) {
