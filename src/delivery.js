@@ -10,6 +10,13 @@ function isDeliveryStateInMAorCTorNY(deliveryState) {
     return ['MA', 'CT','NY'].includes(deliveryState);
 }
 
+function isDeliveryStateInMEorNH(anOrder) {
+    return [
+        'ME',
+        'NH',
+    ].includes(anOrder.deliveryState);
+}
+
 function deliveryDate (anOrder, isRush) {
   if (isRush) {
     let deliveryTime;
@@ -29,10 +36,7 @@ function deliveryDate (anOrder, isRush) {
     if (isDeliveryStateInMAorCTorNY(anOrder.deliveryState)) {
       deliveryTime = 2;
     }
-    else if ([
-      'ME',
-      'NH',
-    ].includes(anOrder.deliveryState)) {
+    else if (isDeliveryStateInMEorNH(anOrder.deliveryState)) {
       deliveryTime = 3;
     }
     else {
