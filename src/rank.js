@@ -2,9 +2,9 @@ function voyageRisk (voyage) {
   let result = 1;
   if (voyage.length > 4) {
     result += 2;
-  }
-  if (voyage.length > 8) {
-    result += voyage.length - 8;
+    if (voyage.length > 8) {
+      result += voyage.length - 8;
+    }
   }
   result += isZoneInChinaOrEast_Indies(voyage.zone)?4:0;
   return Math.max(result, 0);
