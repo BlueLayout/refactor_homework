@@ -1,10 +1,11 @@
+function isDeliveryStateInMAorCT(deliveryState) {
+  return ['MA','CT'].includes(deliveryState);
+}
+
 function deliveryDate (anOrder, isRush) {
   if (isRush) {
     let deliveryTime;
-    if ([
-      'MA',
-      'CT',
-    ].includes(anOrder.deliveryState)) {
+    if (isDeliveryStateInMAorCT(anOrder.deliveryState)) {
       deliveryTime = 1;
     }
     else if ([
@@ -39,3 +40,7 @@ function deliveryDate (anOrder, isRush) {
     return anOrder.placedOn.plusDays(2 + deliveryTime);
   }
 }
+
+module.exports = {
+  deliveryDate
+};
