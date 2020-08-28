@@ -14,18 +14,23 @@ function isDeliveryStateInMEorNH(anOrder) {
     return ['ME', 'NH'].includes(anOrder.deliveryState);
 }
 
+function isRushDeliveryDate(deliveryState) {
+  if (isDeliveryStateInMAorCT(deliveryState)) {
+    return 1;
+  }
+  else if (isDeliveryStateInNYorNH(deliveryState)) {
+    return 2;
+  }
+  else {
+    return 3;
+  }
+}
+
+
 function deliveryDate (anOrder, isRush) {
   let deliveryTime;
   if (isRush) {
-    if (isDeliveryStateInMAorCT(anOrder.deliveryState)) {
-      deliveryTime = 1;
-    }
-    else if (isDeliveryStateInNYorNH(anOrder.deliveryState)) {
-      deliveryTime = 2;
-    }
-    else {
-      deliveryTime = 3;
-    }
+    deliveryTime = isRushDeliveryDate(anOrder.deliveryState);
     return anOrder.placedOn.plusDays(1 + deliveryTime);
   }
   else {
