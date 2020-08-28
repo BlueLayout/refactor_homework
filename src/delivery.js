@@ -42,12 +42,11 @@ function deliveryDate (anOrder, isRush) {
   let deliveryTime;
   if (isRush) {
     deliveryTime = getDeliveryTime(anOrder.deliveryState);
-    return anOrder.placedOn.plusDays(1 + deliveryTime);
   }
   else {
-    deliveryTime = getDeliveryTimeNonRush(anOrder.deliveryState);
-    return anOrder.placedOn.plusDays(2 + deliveryTime);
+    deliveryTime = getDeliveryTimeNonRush(anOrder.deliveryState)+1;
   }
+  return anOrder.placedOn.plusDays(1 + deliveryTime);
 }
 
 module.exports = {
